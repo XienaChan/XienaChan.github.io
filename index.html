@@ -3,68 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Colorful Website</title>
+    <title>Starlight Duo</title>
     <style>
-        /* Styling for the header */
-        header {
-            background-color: #2ecc71;
-            color: #fff;
-            padding: 20px 0;
+        /* Basic styling with starlight colors */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e2f;
+            color: #ffffff;
+        }
+
+        /* Navigation bar styling with starlight colors */
+        .navbar {
+            background: linear-gradient(90deg, #3a3a75, #4f4f9c);
+            padding: 15px;
             text-align: center;
         }
 
-        /* Styling for the container */
-        .container {
-            max-width: 800px;
+        .navbar a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #a8a8ff;
+        }
+
+        /* Gallery container styling */
+        .gallery-container {
+            position: relative;
+            max-width: 1000px;
             margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Styling for the section titles */
-        h2 {
-            color: #2ecc71;
-        }
-
-        /* Styling for the paragraph text */
-        p {
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Styling for the images */
-        .image-container {
-            text-align: center;
-        }
-
-        /* Styling for the footer */
-        footer {
-            background-color: #2c3e50;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            position: fixed;
+        .gallery-container img {
             width: 100%;
-            bottom: 0;
+            border-radius: 10px;
+        }
+
+        /* Navigation buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Section styling for columns */
+        .columns {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 20px auto;
+        }
+
+        .column {
+            padding: 20px;
+            border-radius: 10px;
+            width: 30%;
+            box-sizing: border-box;
+            color: #1e1e2f;
+        }
+
+        .column#about {
+            background-color: #d1c4e9; /* Light Purple */
+        }
+
+        .column#the-game {
+            background-color: #bbdefb; /* Light Blue */
+        }
+
+        .column#contact-us {
+            background-color: #c5cae9; /* Light Indigo */
+        }
+
+        .column h2 {
+            color: #1e1e2f;
+        }
+
+        .column p {
+            color: #333333;
+        }
+
+        /* Footer styling with starlight colors */
+        footer {
+            text-align: center;
+            background: linear-gradient(90deg, #3a3a75, #4f4f9c);
+            color: white;
+            padding: 15px;
+            font-size: 0.9em;
+        }
+
+        footer p {
+            margin: 0;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>StarLight Duo Website</h1>
-    </header>
-    <div class="container">
-        <h2>About Us</h2>
-        <p>This is a colorful HTML page with interesting designs and pictures to make it visually appealing.</p>
-        <div class="image-container">
-            <img src="images/sanur-1.jpg" alt="Sanur Image 1">
-            <img src="images/sanur-2.jpg" alt="Sanur Image 2">
+    <!-- Navigation bar with starlight colors -->
+    <div class="navbar">
+        <a href="#about">About</a>
+        <a href="#the-game">The Game</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact-us">Contact Us</a>
+    </div>
+
+    <!-- Gallery section with single large image display -->
+    <section id="gallery">
+        <div class="gallery-container">
+            <img src="https://via.placeholder.com/1000x600" id="currentImage" alt="Gallery Image">
+            <a class="prev" onclick="changeImage(-1)">&#10094;</a>
+            <a class="next" onclick="changeImage(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <!-- Three-column layout for About, The Game, and Contact Us -->
+    <div class="columns">
+        <div class="column" id="about">
+            <h2>About</h2>
+            <p>Welcome to the Starlight Duo website. Discover the magic of our game, learn about our team, and explore the wonders of the starlight.</p>
+        </div>
+        <div class="column" id="the-game">
+            <h2>The Game</h2>
+            <p>Starlight Duo is an epic journey through the cosmos, filled with adventure, mystery, and breathtaking visuals. Join us in this stellar experience.</p>
+        </div>
+        <div class="column" id="contact-us">
+            <h2>Contact Us</h2>
+            <p>We would love to hear from you! Reach out to us at contact@starlightduo.com for any questions, feedback, or just to say hello.</p>
         </div>
     </div>
+
+    <!-- Footer with starlight colors -->
     <footer>
-        <p>&copy; 2024 My Colorful Website. All rights reserved.</p>
+        <p>&copy; 2024 Starlight Duo. All rights reserved.</p>
     </footer>
+
+    <script>
+        let currentIndex = 0;
+        const images = [
+            "https://via.placeholder.com/1000x600?text=Image+1",
+            "https://via.placeholder.com/1000x600?text=Image+2",
+            "https://via.placeholder.com/1000x600?text=Image+3",
+            "https://via.placeholder.com/1000x600?text=Image+4",
+            "https://via.placeholder.com/1000x600?text=Image+5",
+            "https://via.placeholder.com/1000x600?text=Image+6"
+        ];
+
+        function changeImage(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) {
+                currentIndex = images.length - 1;
+            } else if (currentIndex >= images.length) {
+                currentIndex = 0;
+            }
+            document.getElementById("currentImage").src = images[currentIndex];
+        }
+    </script>
 </body>
 </html>
